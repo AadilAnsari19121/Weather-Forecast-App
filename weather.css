@@ -1,0 +1,647 @@
+:root{
+    --brown_red:palevioletred;
+}
+
+body {
+    height: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b, #86a8e7, #91eae4, #f7ff00);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.switch, .button, .search-input {
+  vertical-align: middle;
+}
+
+
+.dark-theme {
+    --brown_red: #660033;
+    background: linear-gradient(45deg, #2f2f2f, #4f4f4f, #6f6f6f, #8f8f8f, #bfbfbf);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    color: #fff;
+  }
+  
+  .dark-theme .search-container {
+    background: linear-gradient(to right, #333, #555);
+  }
+  
+  .dark-theme .search-input {
+    background: linear-gradient(to right, #444, #666);
+    border-color: #555;
+    color: #fff;
+  }
+  
+  .dark-theme .search-input:focus, .dark-theme .search-input:not(:placeholder-shown) {
+    background: linear-gradient(to right, #555, #777);
+    border-color: #666;
+  }
+  
+  .dark-theme .button {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .dark-theme .button::before {
+    background-color: #555;
+  }
+  
+  .dark-theme .button svg {
+    fill: #fff;
+  }
+.searcbar_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 50px; */
+}
+
+
+/* From Uiverse.io by mRcOol7 */
+
+.searchbar_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to right, #5c5c5c, #f5f5f5);
+    padding: 30px;
+    border-radius: 15px;
+    transition: background 0.3s ease;
+    perspective: 1000px;
+  }
+  
+  .label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    transition: transform 0.3s ease, font-size 0.3s ease, color 0.3s ease,
+      text-shadow 0.3s ease;
+  }
+  
+  .search-input {
+    position: relative;
+    width: 280px;
+    height: 36px;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background: linear-gradient(to right, #d9d9d9, #f8f8f8);
+    font-size: 16px;
+    color: #555;
+    outline: none;
+    transition: box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease,
+      border-color 0.3s ease, transform 0.3s ease;
+    transform-style: preserve-3d;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.2) inset; /* Improved box-shadow for a realistic feel */
+  }
+  
+  .search-input:focus,
+  .search-input:not(:placeholder-shown) {
+    border-color: var(--brown_red);
+    background: linear-gradient(to right, rgba(194, 147, 162, 0.87), #f0f0f0);
+    transform: rotateX(20deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.2) inset; /* Improved box-shadow on focus */
+  }
+  
+  .search-input:focus + .label,
+  .search-input:not(:placeholder-shown) + .label {
+    transform: translateY(-120%) scale(0.8);
+    font-size: 12px;
+    color: var(--brown_red);
+    text-shadow: 0 0 5px rgb(192, 112, 138);
+  }
+  
+  .search-input:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.2) inset; /* Improved box-shadow on hover */
+    background: linear-gradient(to right, #e6e6e6, #f9f9f9);
+    border-color: #999;
+  }
+  
+  .clear-button {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: #100e0e;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .clear-button:hover {
+    color: var(--brown_red);
+    transform: scale(1.1);
+  }
+  
+  .search-input:not(:focus):not(:placeholder-shown) + .clear-button {
+    opacity: 1;
+  }
+  
+  .shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.6),
+      transparent
+    );
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .search-input:focus + .shine {
+    opacity: 1;
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    border-radius: 50%;
+  }
+  
+  .search-input:focus + .search-icon {
+    color: var(--brown_red);
+    transform: translateY(-50%) scale(1.1);
+    filter: drop-shadow(0 0 5px --brown_red);
+  }
+  
+  @keyframes inputPulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
+  .search-input:focus {
+    animation: inputPulse 0.5s ease;
+  }
+
+  
+  /* From Uiverse.io by gharsh11032000 */ 
+.button {
+  position: relative;
+  border: none;
+  background-color: white;
+  color: #212121;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  gap: 5px;
+  border-radius: 10px;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  overflow: hidden;
+  margin-left: 10px;
+  width: 36px;  /* Set a fixed width */
+  height: 36px; 
+  }
+  
+  .button {
+    position: relative;
+    border: none;
+    background-color: white;
+    color: #212121;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    gap: 5px;
+    border-radius: 10px;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    overflow: hidden;
+    margin-left: 10px;
+    width: 36px;  /* Set a fixed width */
+    height: 36px; /* Set a fixed height to match the width for a square button */
+}
+
+.button span {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    background-color: palevioletred;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    bottom: 0%;
+    transform: translate(-100%, 100%);
+    border-radius: inherit;
+}
+
+.button svg {
+    height: 20px;
+    width: 20px;
+    fill: palevioletred;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.button:hover::before {
+    animation: shakeBack 0.6s forwards;
+}
+
+.button:hover svg {
+    fill: white;
+    scale: 1.1; /* Reduced scale on hover for better fit */
+}
+
+.button:active {
+    box-shadow: none;
+}
+  
+  @keyframes shakeBack {
+    0% {
+      transform: translate(-100%, 100%);
+    }
+  
+    50% {
+      transform: translate(30%, -30%);
+    }
+  
+    100% {
+      transform: translate(0%, 0%);
+    }
+  }
+
+  /* From Uiverse.io by andrew-demchenk0 */ 
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 34px;
+    margin-left: 10px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #7d8d99;
+    transition: .4s;
+    border-radius: 30px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    left: 2px;
+    bottom: 2px;
+    z-index: 2;
+    background-color: #e8e8e8;
+    transition: .4s;
+  }
+  
+  .sun svg {
+    position: absolute;
+    top: 6px;
+    left: 36px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .moon svg {
+    fill: #7d8d99;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+  }
+
+  
+  
+  /* .switch:hover */.sun svg {
+    animation: rotate 15s linear infinite;
+  }
+  
+  @keyframes rotate {
+   
+    0% {
+      transform: rotate(0);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* .switch:hover */.moon svg {
+    animation: tilt 5s linear infinite;
+  }
+  
+  @keyframes tilt {
+   
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    25% {
+      transform: rotate(-10deg);
+    }
+  
+    75% {
+      transform: rotate(10deg);
+    }
+  
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+  .input:checked + .slider {
+    background-color: #0d0d0e;
+  }
+  
+  .input:focus + .slider {
+    box-shadow: 0 0 1px #0d0d0e;
+  }
+  
+  .input:checked + .slider:before {
+    transform: translateX(30px);
+  }
+  
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 50px;
+}
+.temperature {
+    font-size: 48px;
+    margin-right: 20px;
+}
+.selected_state{
+  font-size: 12px;
+  margin-left: 3px;
+}
+.details, .info {
+    font-size: 14px;
+    flex-grow: 1;
+}
+.forecast {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: -30px;
+}
+.day {
+    text-align: center;
+    margin: 20px;
+    flex: 1 0 60px;
+}
+/* .chart {
+    height: 200px;
+    background-color: #f0f0f0;
+    margin: 20px 0;
+    width: 100%;
+} */
+
+
+@media (max-width: 768px) {
+  .switch {
+    width: 50px;
+    height: 26px;
+  }
+  .slider:before {
+    height: 22px;
+    width: 22px;
+  }
+  .sun svg{
+    position: absolute;
+    top: 20%;
+    left: 34px;
+    transform: translate(-50%, -50%);
+    width: 16px; /* adjust the width as needed */
+    height: 16px; /* adjust the height as needed */
+  }
+
+  .moon svg{
+    position: absolute;
+    top: 20%;
+    left: 4px;
+    transform: translate(-50%, -50%);
+    width: 16px; /* adjust the width as needed */
+    height: 16px; /* adjust the height as needed */
+  }
+
+  .switch {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .temperature {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .details, .info {
+        width: 100%;
+        text-align: center;
+    }
+    .forecast {
+        justify-content: center;
+    }
+    .switch {
+      width: 40px;
+      height: 20px;
+    }
+    .slider:before {
+      width: 16px;
+      height: 16px;
+      left: 1px;
+      bottom: 2px;
+    }
+    .input:checked + .slider:before {
+      transform: translateX(20px); /* adjust this value to match your switch width */
+    }
+    
+
+    .sun svg{
+      position: absolute;
+      top: 4px;
+      left: 24px;
+      transform: translate(-50%, -50%);
+      width: 14px; /* adjust the width as needed */
+      height: 14px; /* adjust the height as needed */
+    }
+
+    .moon svg{
+      position: absolute;
+      top: 4px;
+      left: 2px;
+      transform: translate(-50%, -50%);
+      width: 14px; /* adjust the width as needed */
+      height: 14px; /* adjust the height as needed */
+    }
+  
+    .switch {
+      overflow: hidden;
+    }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 3;
+}
+
+/* Modal content */
+.modal-content {
+  position: relative;
+  background-color: var(--brown_red);
+  margin: 20% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+}
+
+/* Close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Validation message */
+#validation-message {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+}
+
+.loading {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 1;
+}
+
+.loading.show {
+  display: block;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+.blur-effect {
+  filter: blur(5px);
+}
