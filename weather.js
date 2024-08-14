@@ -87,8 +87,8 @@ function formatDate(date3) {
 
 let cityname=`vadodara`;
 const capitalizedCity = cityname.charAt(0).toUpperCase() + cityname.slice(1);
-// let apikey=`d2c443623fa9d295839d788b9daaaac8`;
-let apikey=process.env.API_KEY;
+let apikey=`d2c443623fa9d295839d788b9daaaac8`;
+// let apikey=process.env.API_KEY;
 
 let fetching_data=`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&units=metric&appid=${apikey}`;
 let fetching_data2=`https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&cnt=&appid=d2c443623fa9d295839d788b9daaaac8`;
