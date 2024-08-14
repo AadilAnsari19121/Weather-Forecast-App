@@ -1,6 +1,24 @@
-document.getElementById('theme-toggle').addEventListener('click', function () {
-    document.body.classList.toggle('dark-theme');
+const themeToggle = document.getElementById('theme-toggle-checkbox');
+
+// Check if theme is already saved in local storage
+if (localStorage.getItem('theme') === 'dark-theme') {
+    document.body.classList.add('dark-theme');
+    themeToggle.checked = true;
+} else {
+    document.body.classList.remove('dark-theme');
+    themeToggle.checked = false;
+}
+
+themeToggle.addEventListener('click', function () {
+    if (themeToggle.checked) {
+        document.body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark-theme');
+    } else {
+        document.body.classList.remove('dark-theme');
+        localStorage.removeItem('theme');
+    }
 });
+
 
 const modal = document.getElementById('validation-modal');
 const closeButton = document.getElementById('close-button');

@@ -484,11 +484,16 @@ body {
   .slider:before {
     height: 22px;
     width: 22px;
+    left: 0px;
+    bottom: 2px;
+  }
+  .input:checked + .slider:before {
+    transform: translateX(29px); /* adjust this value to match your switch width */
   }
   .sun svg{
     position: absolute;
     top: 20%;
-    left: 34px;
+    left: 32px;
     transform: translate(-50%, -50%);
     width: 16px; /* adjust the width as needed */
     height: 16px; /* adjust the height as needed */
@@ -503,9 +508,9 @@ body {
     height: 16px; /* adjust the height as needed */
   }
 
-  .switch {
+  /* .switch {
     overflow: hidden;
-  }
+  } */
 }
 
 @media (max-width: 480px) {
@@ -519,6 +524,14 @@ body {
     .temperature {
         margin-right: 0;
         margin-bottom: 10px;
+    }
+    .selected_city{
+      display: inline;
+      margin-left: 5%;
+    }
+    .selected_state{
+      display: inline;
+      margin-left: 5px;
     }
     .details, .info {
         width: 100%;
@@ -534,18 +547,18 @@ body {
     .slider:before {
       width: 16px;
       height: 16px;
-      left: 1px;
-      bottom: 2px;
+      left: 0px;
+      bottom: 1.65px;
     }
     .input:checked + .slider:before {
-      transform: translateX(20px); /* adjust this value to match your switch width */
+      transform: translateX(17.2px); /* adjust this value to match your switch width */
     }
     
 
     .sun svg{
       position: absolute;
-      top: 4px;
-      left: 24px;
+      top: 3.5px;
+      left: 18px;
       transform: translate(-50%, -50%);
       width: 14px; /* adjust the width as needed */
       height: 14px; /* adjust the height as needed */
@@ -553,7 +566,7 @@ body {
 
     .moon svg{
       position: absolute;
-      top: 4px;
+      top: 3.5px;
       left: 2px;
       transform: translate(-50%, -50%);
       width: 14px; /* adjust the width as needed */
@@ -580,7 +593,7 @@ body {
 .modal-content {
   position: relative;
   background-color: var(--brown_red);
-  margin: 20% auto;
+  margin: 35% auto;
   padding: 20px;
   border-radius: 10px;
   width: 80%;
