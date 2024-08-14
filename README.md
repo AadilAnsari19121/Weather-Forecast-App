@@ -28,3 +28,9 @@ Acknowledgments
 Description
 
 A weather forecast app that allows users to search for current weather and 10-day weather reports for any city. Built with HTML, CSS, and JavaScript, and uses the OpenWeather API for data.
+
+Screenshots
+
+Here is some screenshot
+
+![Screenshot](screenshots/Screenshot_20240814-132632.jpg)
